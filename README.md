@@ -1,10 +1,10 @@
-# AI Wise (AIWise.dev)
+# AI Library
 
 A modern, dark-themed resource library for learning AI - from beginners to advanced practitioners.
 
 ## Overview
 
-AI Wise (AIWise.dev) is a comprehensive learning path for AI enthusiasts, similar to learningseo.io but focused on artificial intelligence concepts, tools, and applications. The site organizes AI learning resources into digestible sections and categories, making it easier for learners at all levels to find relevant content.
+AI Library is a comprehensive learning path for AI enthusiasts, similar to learningseo.io but focused on artificial intelligence concepts, tools, and applications. The site organizes AI learning resources into digestible sections and categories, making it easier for learners at all levels to find relevant content.
 
 ## Features
 
@@ -94,11 +94,10 @@ To add a new category:
 
 ## Deployment
 
-To deploy AI Wise to a live website:
+To deploy AI Library to a live website:
 
-1. Register the domain (e.g., AIWise.dev)
-2. Choose a hosting provider (GitHub Pages, Netlify, Vercel, etc.)
-3. Follow the hosting provider's instructions for deploying a static website
+1. Choose a hosting provider (GitHub Pages, Netlify, Vercel, etc.)
+2. Follow their instructions to deploy a static site from your repository.
 
 ### GitHub Pages Deployment
 

@@ -1,5 +1,5 @@
 /**
- * Test script to verify all links and buttons on the AI Wise site
+ * Test script to verify all links and buttons on the AI Library site
  */
 
 document.addEventListener('DOMContentLoaded', function() {
