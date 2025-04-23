@@ -10,7 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Global variable to prevent multiple resource loads
     var resourcesLoaded = false;
     
-    // ===== FIX 1: HERO BUTTONS (REMOVED - Using HTML links now) =====
+    // ===== FIX 1: HERO BUTTONS (Explicit Scroll) =====
+    var startLearningBtn = document.querySelector('.hero-buttons .btn-primary');
+    var exploreResourcesBtn = document.querySelector('.hero-buttons .btn-secondary');
+
+    if (startLearningBtn) {
+        startLearningBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor jump
+            var targetSection = document.getElementById('learning-paths');
+            if (targetSection) {
+                console.log('🖱️ Scrolling to #learning-paths');
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    if (exploreResourcesBtn) {
+        exploreResourcesBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor jump
+            var targetSection = document.getElementById('resources');
+            if (targetSection) {
+                console.log('🖱️ Scrolling to #resources');
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
     
     // ===== FIX 2: RESOURCES DISPLAY =====
     // Fix path cards to properly display resources
