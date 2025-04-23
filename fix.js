@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var newCard = card.cloneNode(true);
             card.parentNode.replaceChild(newCard, card);
             
-            // Add a clean click handler to the entire card
+            /* // Add a clean click handler to the entire card
             newCard.onclick = function(e) {
                 // Skip if clicking specifically on a link element
                 if (e.target.tagName === 'A') return;
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Load resources without flashing
                     loadResourcesForCategoryOnce(category);
                 }
-            };
+            }; */
             
             // Also fix the Explore Path button inside each card
             var exploreBtn = newCard.querySelector('.path-link');
