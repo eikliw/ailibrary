@@ -10,82 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Global variable to prevent multiple resource loads
     var resourcesLoaded = false;
     
-    // ===== FIX 1: HERO BUTTONS =====
-    // Fix Start Learning button - direct and minimal approach
-    var startLearningBtn = document.querySelector('.hero-buttons .btn-primary');
-    if (startLearningBtn) {
-        console.log('📝 Found Start Learning button, fixing...');
-        
-        // Make a completely new button to replace the old one, eliminating any event handler issues
-        var newStartBtn = document.createElement('a');
-        newStartBtn.className = 'btn btn-primary';
-        newStartBtn.textContent = 'Start Learning';
-        newStartBtn.href = '#learning-paths';
-        
-        // Replace the old button with our new one
-        startLearningBtn.parentNode.replaceChild(newStartBtn, startLearningBtn);
-        
-        // Add a guaranteed to work click handler
-        newStartBtn.onclick = function(e) {
-            e.preventDefault();
-            console.log('🔍 Start Learning button clicked!');
-            
-            // First scroll to Learning Paths
-            var learningPathsSection = document.getElementById('learning-paths');
-            if (learningPathsSection) {
-                learningPathsSection.scrollIntoView({behavior: 'smooth'});
-                
-                // Then scroll to Resources section after a delay
-                setTimeout(function() {
-                    var resourcesSection = document.getElementById('resources');
-                    if (resourcesSection) {
-                        resourcesSection.scrollIntoView({behavior: 'smooth'});
-                        
-                        // Show fundamentals resources
-                        loadResourcesForCategory('fundamentals');
-                    }
-                }, 1000);
-            }
-            
-            return false; // Extra insurance against default behavior
-        };
-        
-        console.log('✅ Start Learning button fixed');
-    } else {
-        console.error('❌ Start Learning button not found!');
-    }
-    
-    // Fix Learn More button too
-    var learnMoreBtn = document.querySelector('.hero-buttons .btn-secondary');
-    if (learnMoreBtn) {
-        console.log('📝 Found Learn More button, fixing...');
-        
-        // Make a completely new button to replace the old one
-        var newLearnMoreBtn = document.createElement('a');
-        newLearnMoreBtn.className = 'btn btn-secondary';
-        newLearnMoreBtn.textContent = 'Learn More';
-        newLearnMoreBtn.href = '#about';
-        
-        // Replace the old button
-        learnMoreBtn.parentNode.replaceChild(newLearnMoreBtn, learnMoreBtn);
-        
-        // Add click handler
-        newLearnMoreBtn.onclick = function(e) {
-            e.preventDefault();
-            console.log('🔍 Learn More button clicked!');
-            
-            var aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({behavior: 'smooth'});
-            }
-            
-            return false;
-        };
-        
-        console.log('✅ Learn More button fixed');
-    } else {
-        console.error('❌ Learn More button not found!');
-    }
+    // ===== FIX 1: HERO BUTTONS (REMOVED - Using HTML links now) =====
     
     // ===== FIX 2: RESOURCES DISPLAY =====
     // Fix path cards to properly display resources
@@ -251,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Build the card
         var cardHTML = `
             <div class="resource-image">
-                <img src="${categoryImage}" alt="${resource.title}" onerror="this.src='images/placeholder.jpg'">
+                <img src="${categoryImage}" alt="${resource.title}" onerror="this.onerror=null;this.src='images/placeholder.svg';">
             </div>
             <div class="resource-content">
                 <div class="resource-tags">
@@ -269,7 +194,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var cardImage = card.querySelector('img');
         if (cardImage) {
             cardImage.onerror = function() {
-                this.src = 'images/placeholder.jpg';
+                // Prevent infinite loop if placeholder also fails
+                this.onerror = null; 
+                this.src = 'images/placeholder.svg';
                 console.log('📷 Using placeholder image for: ' + resource.title);
             };
         }
