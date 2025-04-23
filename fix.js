@@ -10,29 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Global variable to prevent multiple resource loads
     var resourcesLoaded = false;
     
-    // ===== FIX 1: HERO BUTTONS (Simplified Buttons) =====
-    var learnBtn = document.getElementById('hero-btn-learn');
-    var exploreBtn = document.getElementById('hero-btn-explore');
-
-    if (learnBtn) {
-        learnBtn.addEventListener('click', function() {
-            var targetSection = document.getElementById('learning-paths');
-            if (targetSection) {
-                console.log('🖱️ Scrolling to #learning-paths (Button)');
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-
-    if (exploreBtn) {
-        exploreBtn.addEventListener('click', function() {
-            var targetSection = document.getElementById('resources');
-            if (targetSection) {
-                console.log('🖱️ Scrolling to #resources (Button)');
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
+    // ===== FIX 1: HERO BUTTONS (REMOVED - Handled by HTML/CSS) =====
     
     // ===== FIX 2: RESOURCES DISPLAY =====
     // Fix path cards to properly display resources
