@@ -10,27 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Global variable to prevent multiple resource loads
     var resourcesLoaded = false;
     
-    // ===== FIX 1: HERO BUTTONS (Explicit Scroll) =====
-    var startLearningBtn = document.querySelector('.hero-buttons .btn-primary');
-    var exploreResourcesBtn = document.querySelector('.hero-buttons .btn-secondary');
+    // ===== FIX 1: HERO BUTTONS (Simplified Buttons) =====
+    var learnBtn = document.getElementById('hero-btn-learn');
+    var exploreBtn = document.getElementById('hero-btn-explore');
 
-    if (startLearningBtn) {
-        startLearningBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor jump
+    if (learnBtn) {
+        learnBtn.addEventListener('click', function() {
             var targetSection = document.getElementById('learning-paths');
             if (targetSection) {
-                console.log('🖱️ Scrolling to #learning-paths');
+                console.log('🖱️ Scrolling to #learning-paths (Button)');
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     }
 
-    if (exploreResourcesBtn) {
-        exploreResourcesBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor jump
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
             var targetSection = document.getElementById('resources');
             if (targetSection) {
-                console.log('🖱️ Scrolling to #resources');
+                console.log('🖱️ Scrolling to #resources (Button)');
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
